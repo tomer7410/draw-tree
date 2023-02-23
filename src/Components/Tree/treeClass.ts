@@ -36,30 +36,29 @@ export function findDividers(number:number) :Array<number>{
     }
     return dividers
 }
-export const  setTreePositionWraped = (paintedTree:Tree,x:number,y:number,minPosX:number) =>{
-    const setTreePosition = (paintedTree:Tree,x:number,y:number) =>{
+export const  setTreePositionWraped = (paintedTree:Tree,x:number,y:number,minPosX:number,minGap:number,nodeSize:number) =>{
+    const setTreePosition = (paintedTree:Tree,x:number,y:number,minGap:number,nodeSize:number) =>{
         let children = null
-        const gap = 50
         const isLeafNode = isLeaf(paintedTree)
         let fatherPosX = 0;
         let fatherPosY = y;
         const nOfChildren = paintedTree.children.length;
         if(isLeafNode){
             if(x<minPosX){
-                minPosX += 30 + gap
+                minPosX += nodeSize + minGap
                 x = minPosX
             }
             minPosX = x
             return new PaintedTree(paintedTree.value,[],x,y)
         }
         else {
-            const childrenAreaWidth = (nOfChildren * 30) + (nOfChildren - 1) * gap
-            const childrenAreaHeight = 30 +  gap;  
-            let childrenPosX = (x + 15) - (childrenAreaWidth / 2)  
+            const childrenAreaWidth = (nOfChildren * nodeSize) + (nOfChildren - 1) * minGap
+            const childrenAreaHeight = nodeSize +  minGap;  
+            let childrenPosX = (x + (nodeSize/2)) - (childrenAreaWidth / 2)  
             const childrenPosY = y + childrenAreaHeight 
             children = paintedTree.children.map((child:Tree,index:number) : PaintedTree=>{
-                const x = childrenPosX + ((30 + gap) * index ) 
-                return setTreePosition(child,x,childrenPosY)
+                const x = childrenPosX + ((30 + minGap) * index ) 
+                return setTreePosition(child,x,childrenPosY,minGap,nodeSize)
             })
             const firstChildrenXPos = children[0].x
             const lastChildrenXPos = children[nOfChildren - 1].x   
@@ -67,7 +66,7 @@ export const  setTreePositionWraped = (paintedTree:Tree,x:number,y:number,minPos
             return new PaintedTree(paintedTree.value,children,fatherPosX,fatherPosY)
         }
     }
-   return (setTreePosition(paintedTree,x,y))
+   return (setTreePosition(paintedTree,x,y,minGap,nodeSize))
 }
 
 export const buildTree = (number:number) : Tree=> {
