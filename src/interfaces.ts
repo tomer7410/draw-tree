@@ -9,3 +9,12 @@ export interface PaintedTreeProps {
     tree:PaintedTree,
     nodeSize:number
 }
+
+export interface Point {
+    x:number,
+    y:number
+}
+export interface LineProps {
+    father:PaintedTree,
+    children:PaintedTree
+}
