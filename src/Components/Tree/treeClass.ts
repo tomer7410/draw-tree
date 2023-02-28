@@ -57,7 +57,7 @@ export const  setTreePositionWraped = (paintedTree:Tree,x:number,y:number,minPos
             let childrenPosX = (x + (nodeSize/2)) - (childrenAreaWidth / 2)  
             const childrenPosY = y + childrenAreaHeight 
             children = paintedTree.children.map((child:Tree,index:number) : PaintedTree=>{
-                const x = childrenPosX + ((30 + minGap) * index ) 
+                const x = childrenPosX + ((nodeSize + minGap) * index ) 
                 return setTreePosition(child,x,childrenPosY,minGap,nodeSize)
             })
             const firstChildrenXPos = children[0].x

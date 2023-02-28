@@ -5,7 +5,7 @@
 .node{
     position:absolute;
     border:1px red solid;
-    /* border-radius:50%; */
+    border-radius:50%;
     font-size:125%;
     display: flex;
     justify-content: center;
