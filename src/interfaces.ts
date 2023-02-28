@@ -14,7 +14,7 @@ export interface Point {
     x:number,
     y:number
 }
-export interface LineProps {
-    father:PaintedTree,
-    children:PaintedTree
+export interface DrawLineProps{
+    startedPoint:Point,
+    endPoint:Point
 }
