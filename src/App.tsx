@@ -1,7 +1,7 @@
 import React from 'react';
-import TreeComponent from './Components/Tree/TreeComponent';
+import TreeComponent from './lib/Components/Tree/TreeComponent';
 import './App.css';
-import { buildTree } from './Components/Tree/treeClass';
+import { buildTree } from './lib/treeClass';
 
 const tree = buildTree(16) // you can build however you want 
 function App() {

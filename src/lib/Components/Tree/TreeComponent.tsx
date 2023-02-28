@@ -1,7 +1,7 @@
 import React from 'react'
-import { isLeaf, setTreePositionWraped} from './treeClass'
+import { isLeaf, setTreePositionWraped} from '../../treeClass'
 import './tree.css' 
-import { PaintedTreeProps, TreeProps,Point,DrawLineProps } from './interfaces'
+import { PaintedTreeProps, TreeProps,Point,DrawLineProps } from '../../interfaces'
 import { Line } from 'react-lineto';
 const DrawLine = ({startedPoint,endPoint}: DrawLineProps) => {
     return (
