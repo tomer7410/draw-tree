@@ -3,7 +3,7 @@ The Tree component takes Tree object as props and draw it in 2d. in my example t
 
 ## Using the Component
 
-those are the steps to run the app
+Those are the steps to run the app
 ```
 git clone https://github.com/tomer7410/draw-tree.git
 npm install
